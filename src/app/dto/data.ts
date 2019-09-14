@@ -1,5 +1,5 @@
 export class Data {
-    id: number,
+    id: number;
     lastname: string;
     name: string;
     age: number;
