@@ -12,6 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatRadioModule} from '@angular/material/radio';
   MatCheckboxModule,
   MatTableModule,
   MatDatepickerModule,
-  MatRadioModule
+  MatRadioModule,
+  MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
