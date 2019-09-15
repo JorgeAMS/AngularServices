@@ -21,7 +21,7 @@ export class DataService {
     {id:0, lastname: 'Mojica Aguilera',     name: 'Luís Marcos',      age: 65,  email: '@outlook.com',  city: 'Madrid',         birthdate: '01/04/1954'},
     {id:0, lastname: 'Duarte Soto',         name: 'Douglas',          age: 66,  email: '@gmail.com',    city: 'Chia',           birthdate: '19/01/1953'},
     {id:0, lastname: 'Páez Guerrero',       name: 'Juan Camilo',      age: 57,  email: '@gmail.com',    city: 'Villavicencio',  birthdate: '19/09/1961'},
-    {id:0, lastname: 'SAnchez Valero',      name: 'Ramón Alirio',     age: 43,  email: '@outlook.com',  city: 'Neiva',          birthdate: '25/09/1975'},
+    {id:0, lastname: 'Sanchez Valero',      name: 'Ramón Alirio',     age: 43,  email: '@outlook.com',  city: 'Neiva',          birthdate: '25/09/1975'},
   ];
 
   constructor() { }

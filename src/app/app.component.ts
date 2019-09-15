@@ -10,9 +10,9 @@ import { FormControl } from '../../node_modules/@angular/forms';
 })
 export class AppComponent {
   myData = new FormControl();
-
+  dataSelected: string;
   displayedColumn: string[] = ['id', 'lastname', 'name', 'age', 'email', 'city', 'birthdate'];
-  datas: Data[]; 
+  datas: Data[];
 
   title = 'material';
 

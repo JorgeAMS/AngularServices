@@ -7,8 +7,12 @@ import { ReactiveFormsModule, FormsModule } from '../../node_modules/@angular/fo
 import { MatFormFieldModule } from '../../node_modules/@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {  MatButtonModule } from '@angular/material/button';
-import {  MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +27,10 @@ import {  MatCheckboxModule } from '@angular/material/checkbox';
   ReactiveFormsModule,
   BrowserAnimationsModule,
   MatButtonModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatTableModule,
+  MatDatepickerModule,
+  MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
