@@ -15,19 +15,6 @@ import {MatDatepicker} from '@angular/material/datepicker';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-/*
-export const MY_FORMATS = {
-  parse: {
-    dateInput: 'DD/MM/YYYY',
-  },
-  display: {
-    dateInput: 'DD/MM/YYYY',
-    monthYearLabel: 'DD/MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'DD/MMMM YYYY',
-  },
-};
-*/
 
 export class AppComponent {
   myData = new FormControl();
@@ -39,14 +26,30 @@ export class AppComponent {
   toggle1=0;
   date1 = new Date("2018/09/04");
   suma=0;
-  IdSelected : string;
-  
+  IdSelected="";
+  IsSelected : boolean;
+  NameSelected1 : string;
+
   cambiar() {
     this.suma = this.slider1;    
   }
 
-  getID(a : string){
-    IdSelected = IdSelected + " " + a;
+  checkStatus(event){
+    this.IsSelected=(event.checked);
+  }
+
+
+  getID(NameSelected : string = ""){
+    console.log(this.IsSelected);
+    if(this.IdSelected.includes(NameSelected)){
+      this.IdSelected=this.IdSelected.replace(NameSelected+",","");
+    }
+    else{
+      this.IdSelected = this.IdSelected + " " + NameSelected;
+      if (this.IdSelected.length>1){
+        this.IdSelected = this.IdSelected+","
+      }
+    }
   }
 
   constructor(private dataService : DataService){
