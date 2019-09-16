@@ -3,9 +3,9 @@
 <br>
 <form class = "tp-form">
   <mat-form-field class = "tp-full-width">
-     <input type = "text" placeholder = "Search" aria-label = "Number" matInput [formControl] = "myData" [matAutocomplete] = "auto">
+     <input type="text" placeholder="Search" aria-label="Number" matInput [formControl]="myData" [matAutocomplete] = "auto">
      <mat-autocomplete #auto = "matAutocomplete">
-        <mat-option *ngFor = "let data of datas" [value] = "data.name">
+        <mat-option *ngFor = "let data of datas | async" [value] = "data.name">
            {{data.name}}
         </mat-option>
      </mat-autocomplete>
@@ -45,14 +45,32 @@
   </mat-select>
 </mat-form-field>
 
-<br><br>
+<br><br><br><br>
 
 
+<mat-slider [(ngModel)]="slider1" thumbLabel (change)="cambiar()" min="1920" max="2020" step="10"></mat-slider><br>
+<div>
+  Slider:{{suma}}
+</div>
+
+<br><br><br><br>
+
+<mat-slide-toggle [(ngModel)]="toggle1">Slide me!</mat-slide-toggle>
+<div>
+  Toggle:{{toggle1}}
+  <br>
+  Date: {{date1}}
+</div>
 
 
+<mat-form-field>
+    <input matInput [matDatepicker] = "picker" placeholder = "Choose a date" [value]="date1">
+    <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+ </mat-form-field>
 
 
-<!--
+ <!--
 <mat-form-field>
   <input matInput [matDatepicker]="picker" placeholder="Choose a date">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -73,6 +91,10 @@
 
 
 <table mat-table [dataSource]="datas" class="mat-elevation-z8">
+  <ng-container matColumnDef="check">
+    <th mat-header-cell *matHeaderCellDef> Check </th>
+    <td mat-cell *matCellDef="let datas"><mat-checkbox></mat-checkbox></td>
+  </ng-container>
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -103,13 +125,25 @@
     <th mat-header-cell *matHeaderCellDef> City </th>
     <td mat-cell *matCellDef="let datas"> {{datas.city}} </td>
   </ng-container>
-
+<!--
   <ng-container matColumnDef="birthdate">
     <th mat-header-cell *matHeaderCellDef> Birthdate </th>
     <td mat-cell *matCellDef="let datas"> {{datas.birthdate}} </td>
   </ng-container>
+-->
+  <ng-container matColumnDef="birthdate">
+    <th mat-header-cell *matHeaderCellDef> Birthdate </th>
+    <td mat-cell *matCellDef="let datas"> 
+      <mat-form-field>
+        <input matInput [matDatepicker] = "picker" placeholder = "Choose a date" [value]="datas.birthdate | date:'yyyy-MM-dd'">
+        <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </td>
+  </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
+
 </table>
 
