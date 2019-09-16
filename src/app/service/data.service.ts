@@ -6,12 +6,12 @@ import { Data } from '../dto/data';
 })
 export class DataService {
   datas: Data[] = [
-    {id:10132, lastname: 'Morales Sarmiento',   name: 'Jorge Armando',    age: 19,  email: '@gmail.com',    city: 'Bogotá',         birthdate: '1999-12-02'},
-    {id:21904, lastname: 'Sarmiento Vargas',    name: 'Angie',            age: 21,  email: '@outlook.com',  city: 'Popayán',        birthdate: '1997-10-13'},
-    {id:32309, lastname: 'Rojas Quintero',      name: 'Ludivia',          age: 28,  email: '@hotmail.com',  city: 'Cartagena',      birthdate: '1991-05-29'},
-    {id:12547, lastname: 'Hortúa Quevedo',      name: 'Juan Enrique',     age: 35,  email: '@yahoo.com',    city: 'Bogotá',         birthdate: '1983-12-23'},
+    {id:10132, lastname: 'Morales Sarmiento',   name: 'Jorge Armando',    age: 19,  email: 'jamorales@gmail.com',    city: 'Bogotá',         birthdate: '1999-12-02'},
+    {id:21904, lastname: 'Sarmiento Vargas',    name: 'Angie',            age: 21,  email: 'angisita44@outlook.com',  city: 'Popayán',        birthdate: '1997-10-13'},
+    {id:32309, lastname: 'Rojas Quintero',      name: 'Ludivia',          age: 28,  email: 'lurojas@hotmail.com',  city: 'Cartagena',      birthdate: '1991-05-29'},
+    {id:12547, lastname: 'Hortúa Quevedo',      name: 'Juan Enrique',     age: 35,  email: 'jhrique@yahoo.com',    city: 'Bogotá',         birthdate: '1983-12-23'},
     {id:19843, lastname: 'Ortiz López',         name: 'Santiago',         age: 54,  email: '@hotmail.com',  city: 'Bogotá',         birthdate: '1965-03-06'},
-    {id:10943, lastname: 'González Colmenares', name: 'Daniel',           age: 27,  email: '@hotmail.com',  city: 'Bogotá',         birthdate: '1992-04-18'},
+    {id:10943, lastname: 'González Colmenares', name: 'Daniel',           age: 29,  email: '@hotmail.com',  city: 'Bogotá',         birthdate: '1992-04-18'},
     {id:12083, lastname: 'Torres Stark',        name: 'Maria Paula',      age: 15,  email: '@outlook.com',  city: 'Armenia',        birthdate: '2004-06-13'},
     {id:18943, lastname: 'Rodriguez Ayala',     name: 'Luisa Fernanda',   age: 8,   email: '@gmail.com',    city: 'Manizales',      birthdate: '2011-08-11'},
     {id:20398, lastname: 'Suarez Garcia',       name: 'Anyela Valentina', age: 57,  email: '@outlook.com',  city: 'Cali',           birthdate: '1961-11-27'},

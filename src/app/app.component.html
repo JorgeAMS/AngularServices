@@ -3,7 +3,7 @@
 <br>
 <form class = "tp-form">
   <mat-form-field class = "tp-full-width">
-     <input type="text" placeholder="Search" aria-label="Number" matInput [formControl]="myData" [matAutocomplete] = "auto">
+     <input type="text" placeholder="Search - Autocomplete" aria-label="Number" matInput [formControl]="myData" [matAutocomplete] = "auto">
      <mat-autocomplete #auto = "matAutocomplete">
         <mat-option *ngFor = "let data of datas" [value] = "data.name">
            {{data.name}}
@@ -80,9 +80,18 @@
 
 
 <br>
-<div>You have checked: {{dataSelected}}</div>
-<div>You have selected: {{IdSelected}}</div>
+<div>You have selected: {{dataSelected}}</div>
+<div>You have checked: {{IdSelected}}</div>
 
+<br><br>
+<mat-slider [(ngModel)]="slider1" thumbLabel (change)="cambiar()" min="0" max="100" step="5"></mat-slider><br>
+<div>
+  Age Range: 0 - {{suma}}
+</div>
+<div>
+  Names: 
+  {{Datastrin}}
+</div>
 <br><br>
 
 <mat-form-field>
@@ -95,11 +104,6 @@
 
 <br><br><br><br>
 
-
-<mat-slider [(ngModel)]="slider1" thumbLabel (change)="cambiar()" min="1920" max="2020" step="10"></mat-slider><br>
-<div>
-  Slider:{{suma}}
-</div>
 
 <br><br>
 <mat-slide-toggle [(ngModel)]="toggle1">Slide me!</mat-slide-toggle>

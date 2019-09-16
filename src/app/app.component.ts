@@ -21,6 +21,8 @@ export class AppComponent {
   dataSelected: string;
   displayedColumn: string[] = ['check', 'select','id', 'lastname', 'name', 'age', 'email', 'city', 'birthdate'];
   datas: Data[];
+  filteredData;
+  Datastrin:string;
 
   slider1=0;
   toggle1=0;
@@ -31,13 +33,18 @@ export class AppComponent {
   NameSelected1 : string;
 
   cambiar() {
-    this.suma = this.slider1;    
+    this.suma = this.slider1;
+    this.Datastrin="";
+    for (var item of this.datas) {
+      if (item.age <= this.slider1) {
+        this.Datastrin=""+item.name+", "+this.Datastrin;
+      }
+    }
   }
 
   checkStatus(event){
     this.IsSelected=(event.checked);
   }
-
 
   getID(NameSelected : string = ""){
     console.log(this.IsSelected);

@@ -13,6 +13,10 @@
    width: 100%;
  }
 
+ mat-slider{
+    width: 50%;
+ }
+
  .example-form {
     min-width: 150px;
     max-width: 500px;
