@@ -25,12 +25,15 @@ export class AppComponent {
   Datastrin:string;
 
   slider1=0;
-  toggle1=0;
+  toggle1=false;
   date1 = new Date("2018/09/04");
   suma=0;
   IdSelected="";
   IsSelected : boolean;
   NameSelected1 : string;
+  showornot:string="show/hide";
+
+
 
   cambiar() {
     this.suma = this.slider1;

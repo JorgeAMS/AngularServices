@@ -1,114 +1,122 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<br>
-<form class = "tp-form">
-  <mat-form-field class = "tp-full-width">
-     <input type="text" placeholder="Search - Autocomplete" aria-label="Number" matInput [formControl]="myData" [matAutocomplete] = "auto">
-     <mat-autocomplete #auto = "matAutocomplete">
-        <mat-option *ngFor = "let data of datas" [value] = "data.name">
-           {{data.name}}
-        </mat-option>
-     </mat-autocomplete>
-  </mat-form-field>
-</form>
+<h2>Jorge Armando Morales Sarmiento - 66161027</h2>
 
 <br>
+<div class="autocompete">
+  <form class = "tp-form">
+    <mat-form-field class = "tp-full-width">
+       <input type="text" placeholder="Search - Autocomplete" aria-label="Number" matInput [formControl]="myData" [matAutocomplete] = "auto">
+       <mat-autocomplete #auto = "matAutocomplete">
+          <mat-option *ngFor = "let data of datas" [value] = "data.name">
+             {{data.name}}
+          </mat-option>
+       </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+<br>
 
+<div>
+  <mat-slide-toggle [(ngModel)]="toggle1">Click to {{showornot}} Table</mat-slide-toggle>
+</div>
+<br><br>
+<br><br>
 
-<table mat-table [dataSource]="datas" class="mat-elevation-z8">
-  <ng-container matColumnDef="check">
-    <th mat-header-cell *matHeaderCellDef> Check </th>
-    <td mat-cell *matCellDef="let datas"><mat-checkbox [checked]="false" (change)="checkStatus($event)" (click)="getID(datas.name)" [value]="datas.name"></mat-checkbox></td>
-  </ng-container>
+<div  *ngIf="!toggle1">
+  <table mat-table [dataSource]="datas" class="mat-elevation-z8">
+    <ng-container matColumnDef="check">
+      <th mat-header-cell *matHeaderCellDef> Check </th>
+      <td mat-cell *matCellDef="let datas"><mat-checkbox [checked]="false" (change)="checkStatus($event)" (click)="getID(datas.name)" [value]="datas.name"></mat-checkbox></td>
+    </ng-container>
 
-  <ng-container matColumnDef="select">
-    <th mat-header-cell *matHeaderCellDef> Select </th>
-    <td mat-cell *matCellDef="let datas">
-      <mat-radio-group  class="example-radio-group" [(ngModel)]="dataSelected">
-        <mat-radio-button class="example-radio-button" [value]="datas.name"></mat-radio-button>
-      </mat-radio-group>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef> Select </th>
+      <td mat-cell *matCellDef="let datas">
+        <mat-radio-group  class="example-radio-group" [(ngModel)]="dataSelected">
+          <mat-radio-button class="example-radio-button" [value]="datas.name"></mat-radio-button>
+        </mat-radio-group>
+      </td>
+    </ng-container>
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let datas"> {{datas.id}} </td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let datas"> {{datas.id}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="lastname">
-    <th mat-header-cell *matHeaderCellDef> Lastname </th>
-    <td mat-cell *matCellDef="let datas"> {{datas.lastname}} </td>
-  </ng-container>
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> Lastname </th>
+      <td mat-cell *matCellDef="let datas"> {{datas.lastname}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let datas"> {{datas.name}} </td>
-  </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let datas"> {{datas.name}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="age">
-    <th mat-header-cell *matHeaderCellDef> Age </th>
-    <td mat-cell *matCellDef="let datas"> {{datas.age}} </td>
-  </ng-container>
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Age </th>
+      <td mat-cell *matCellDef="let datas"> {{datas.age}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> Email </th>
-    <td mat-cell *matCellDef="let datas"> {{datas.email}} </td>
-  </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let datas"> {{datas.email}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="city">
-    <th mat-header-cell *matHeaderCellDef> City </th>
-    <td mat-cell *matCellDef="let datas"> {{datas.city}} </td>
-  </ng-container>
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef> City </th>
+      <td mat-cell *matCellDef="let datas"> {{datas.city}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="birthdate">
-    <th mat-header-cell *matHeaderCellDef> Birthdate </th>
-    <td mat-cell *matCellDef="let datas"> 
-      <mat-form-field>
-        <input matInput [matDatepicker] = "picker" placeholder = "" [value]="datas.birthdate | date:'yyyy-MM-dd'">
-        <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-     </mat-form-field> 
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="birthdate">
+      <th mat-header-cell *matHeaderCellDef> Birthdate </th>
+      <td mat-cell *matCellDef="let datas"> 
+        <mat-form-field>
+          <input matInput [matDatepicker] = "picker" placeholder = "" [value]="datas.birthdate | date:'yyyy-MM-dd'">
+          <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> 
+      </td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
 
-</table>
-
-
-
+  </table>
+  <br>
+  <br>
+  <div>You have selected: {{dataSelected}}</div>
+  <div>You have checked: {{IdSelected}}</div>
+</div>
 
 <br>
-<div>You have selected: {{dataSelected}}</div>
-<div>You have checked: {{IdSelected}}</div>
-
+<hr>
 <br><br>
 <mat-slider [(ngModel)]="slider1" thumbLabel (change)="cambiar()" min="0" max="100" step="5"></mat-slider><br>
-<div>
+<div class="range">
   Age Range: 0 - {{suma}}
 </div>
+<br>
 <div>
   Names: 
   {{Datastrin}}
 </div>
 <br><br>
-
-<mat-form-field>
-  <mat-select>
-    <mat-option *ngFor="let data of datas" [value]="data.name">
-      {{data.name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-
+<hr>
+Choose One:
+<div class="namechooser">
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let data of datas" [value]="data.name" placeholder="Choose a name">
+        {{data.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 <br><br><br><br>
 
+<hr>
 
-<br><br>
-<mat-slide-toggle [(ngModel)]="toggle1">Slide me!</mat-slide-toggle>
-<div>
-  Toggle:{{toggle1}}
-  <br>
-</div>
+
 
