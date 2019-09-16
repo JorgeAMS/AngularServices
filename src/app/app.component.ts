@@ -32,72 +32,24 @@ export const MY_FORMATS = {
 export class AppComponent {
   myData = new FormControl();
   dataSelected: string;
-  displayedColumn: string[] = ['check','id', 'lastname', 'name', 'age', 'email', 'city', 'birthdate'];
+  displayedColumn: string[] = ['check', 'select','id', 'lastname', 'name', 'age', 'email', 'city', 'birthdate'];
   datas: Data[];
 
   slider1=0;
   toggle1=0;
   date1 = new Date("2018/09/04");
   suma=0;
-  //date2= new Date(this.datas.birthdate)
+  IdSelected : string;
   
   cambiar() {
     this.suma = this.slider1;    
   }
 
-  constructor(private dataService : DataService){
-    this.datas=this.dataService.getData();
+  getID(a : string){
+    IdSelected = IdSelected + " " + a;
   }
-
-  /*
-  title = 'material';
-  autoTicks = false;
-  disabled = false;
-  invert = false;
-  max = 100;
-  min = 0;
-  showTicks = false;
-  step = 1;
-  thumbLabel = false;
-  valor = 0;
-  vertical = false;
-
-  get tickInterval(): number | 'auto' {
-    return this.showTicks ? (this.autoTicks ? 'auto' : this._tickInterval) : 0;
-  }
-  set tickInterval(valor) {
-    this._tickInterval = coerceNumberProperty(valor);
-  }
-  private _tickInterval = 1;
-
 
   constructor(private dataService : DataService){
     this.datas=this.dataService.getData();
   }
-  */
-
-  //Starts Autocomplete
-  /*
-  filteredDatas: Observable<Data[]>;
-
-  ngOnInit() {
-    this.filteredDatas = this.myData.valueChanges.pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
-  }
-
-  private _filter(value: string): Data[] {
-    const filterValue = value.toLowerCase();
-    return this.datas.filter(data => this.datas.toLowerCase().includes(filterValue));
-  }
-*/
-  
-  //ENDS Autocomplete
-
-  //Starts slider
-  
-  
-  //ENDS slider
-
 }
